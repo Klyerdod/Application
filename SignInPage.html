@@ -68,6 +68,7 @@
             text-decoration: none;
             color: black;
             margin: 0 10px;
+            cursor: pointer;
         }
         .third-party-signin img {
             width: 40px;
@@ -92,7 +93,7 @@
         <input type="text" id="username" name="username" placeholder="Username">
         <input type="password" id="password" name="password" placeholder="Password">
         <div class="buttons">
-            <a href="#">Login</a>
+            <a href="#" onclick="redirectToMainPage()">Login</a>
             <a href="#"><strong>Sign-Up</strong></a>
         </div>
         <div class="third-party-signin">
@@ -117,9 +118,10 @@
                 adultBtn.classList.remove('selected');
             }
         }
-    </script>
 
-<!--
-    -->
+        function redirectToMainPage() {
+            window.location.href = "MainPage.html"; // Replace this with the actual file path if needed
+        }
+    </script>
 </body>
 </html>
