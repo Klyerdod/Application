@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chore Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 36px;
+            color: #4CAF50;
+        }
+        .goal {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .progress-bar {
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .progress {
+            background-color: #4CAF50;
+            height: 20px;
+            width: 0;
+            transition: width 0.3s;
+        }
+        .chores {
+            list-style: none;
+            padding: 0;
+        }
+        .chore-item {
+            background-color: #eee;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chore-item p {
+            margin: 0;
+        }
+        .chore-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .accept, .deny {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .deny {
+            background-color: #f44336;
+        }
+        .accept:hover {
+            background-color: #45a049;
+        }
+        .deny:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DYNIT?</h1>
+        <p>The chore tracker for parents.</p>
+        <div class="goal">
+            <p>Andy's Current Goal:</p>
+            <strong>LEGO Batman</strong>
+        </div>
+        <div class="progress-bar">
+            <div class="progress" id="progress-bar"></div>
+        </div>
+        <p id="points">7188 / 10000 pts</p>
+        <input type="number" id="points-input" value="7188" max="10000" style="width: 80px;">
+        <button onclick="updateProgress()">Change</button>
 
+        <h3>Andy's Chore Submissions:</h3>
+        <ul class="chores">
+            <li class="chore-item">
+                <p>Mowing the lawn. <strong>800pts</strong></p>
+                <div class="chore-buttons">
+                    <button class="accept">✔</button>
+                    <button class="deny">✖</button>
+                </div>
+            </li>
+            <li class="chore-item">
+                <p>Empty the Washing Machine. <strong>400pts</strong></p>
+                <div class="chore-buttons">
+                    <button class="accept">✔</button>
+                    <button class="deny">✖</button>
+                </div>
+            </li>
+            <li class="chore-item">
+                <p>Fold Clothes x2. <strong>250pts</strong></p>
+                <div class="chore-buttons">
+                    <button class="accept">✔</button>
+                    <button class="deny">✖</button>
+                </div>
+            </li>
+            <li class="chore-item">
+                <p>Wash Car. <strong>1150pts</strong></p>
+                <div class="chore-buttons">
+                    <button class="accept">✔</button>
+                    <button class="deny">✖</button>
+                </div>
+            </li>
+            <li class="chore-item">
+                <p>Vacuum x2. <strong>550pts</strong></p>
+                <div class="chore-buttons">
+                    <button class="accept">✔</button>
+                    <button class="deny">✖</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        function updateProgress() {
+            let points = document.getElementById("points-input").value;
+            let progress = (points / 10000) * 100;
+            document.getElementById("progress-bar").style.width = progress + "%";
+            document.getElementById("points").textContent = points + " / 10000 pts";
+        }
+    </script>
+</body>
+</html>
